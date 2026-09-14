@@ -1,0 +1,5 @@
+# GIT IGNORE DE PROG II
+*.exe
+*.obj
+*.out 
+*.o 
