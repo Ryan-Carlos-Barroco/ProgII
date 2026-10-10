@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath> 
 #include <Windows.h>
+#include <string> 
 
 
 //calcula o valor de delta
@@ -30,19 +31,20 @@ int main ()
         return 0;
 }
 
-double lerNumero (double numero) {
+double lerNumero (std::string mensagem) {
+
+        double numero; 
 
         while (true){
-
-                std::cin >> numero;
-
-                if (a == 0)
-                {
-                        std::cout << "O valor de não pode ser 0"
-                        continue;
-                }
                 
+                std::cout << mensagem << std:: endl; 
 
+                if (!(std::cout >> numero))
+                {
+                        
+                }
+
+                
         }
         
 
