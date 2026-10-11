@@ -1,29 +1,47 @@
 #include <iostream>
 #include <cmath> 
-#include <Windows.h>
+#ifdef _WIN32
+        #define NOMINMAX
+        #include <Windows.h>
+#endif
 #include <string> 
+#include <limits>
 
 
 //calcula o valor de delta
 double delta (double a, double b, double c);
 
-double lerNumero (double numero);
+//valida entrada dos coeficientes 
+double lerNumero (std::string mensagem);
 
 int main ()
 {
-        SetConsoleOutputCP(65001); //permite acentos no console 
-
-        double a,b,c; 
+        //permite acentos apenas no console windows
+        #ifdef _WIN32
+                SetConsoleOutputCP(65001); 
+        #endif
 
         //lê os coeficientes
-        std::cout << "escolha o valor de a" << std::endl;
-        std:: cin >> a;
 
-        std::cout << "escolha o valor de b" << std::endl;
-        std::cin >> b;        
+        double a;
 
-        std::cout << "escolha o valor de c" << std::endl;
-        std::cin >> c; 
+        while (true){
+
+                a = lerNumero("Escolha o valor do coeficiente a");
+
+                if (a == 0){
+
+                        std::cout << "O valor de a não pode ser 0" << std::endl;
+
+                        continue;
+                }
+                
+                break;
+        }
+        
+        double b = lerNumero("Escolha o valor do coeficiente b");
+
+        double c = lerNumero("Escolha o valor do coeficiente c");
         
         double resultado = delta(a,b,c);
         std::cout << "o valor de delta é: " << resultado << std::endl;
@@ -39,11 +57,19 @@ double lerNumero (std::string mensagem) {
                 
                 std::cout << mensagem << std:: endl; 
 
-                if (!(std::cout >> numero))
+                if (!(std::cin >> numero))
                 {
                         
+                        std::cout << "Entrada Inválida, digite outro número." << std::endl; 
+
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                        continue;
+
                 }
 
+                return numero;
                 
         }
         
@@ -51,8 +77,6 @@ double lerNumero (std::string mensagem) {
 }
 
 double delta(double a, double b, double c) {
-
-
 
         return (b * b)-(4*a*c);
 
