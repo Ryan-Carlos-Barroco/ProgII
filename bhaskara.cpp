@@ -46,6 +46,53 @@ int main ()
         double resultado = delta(a,b,c);
         std::cout << "o valor de delta é: " << resultado << std::endl;
 
+        int tipo; 
+
+        if (resultado > 0)
+        {
+                tipo = 1;
+        }
+        else if (resultado == 0)
+        {
+                tipo = 0;
+        }
+        else
+        {
+                tipo = -1;
+        }
+
+        switch (tipo)
+        {
+                case 1:
+                {
+                        std::cout << "PRIMEIRO CASO -- O VALOR DE X1 E X2 SÃO DIFERENTES" << std::endl;
+
+                        double x1 = (-b + sqrt(resultado)) / (2*a);
+
+                        double x2 = (-b - sqrt(resultado)) / (2*a);
+
+                        std::cout << "O valor de x1 é: " << x1 << std::endl << "O valor de x2 é: " << x2 << std::endl;
+
+                        break;
+                }
+                case 0:
+                {
+                        std::cout << "SEGUNDO CASO -- O VALOR DE X1 E X2 SÃO IGUAIS" << std::endl;
+
+                        double x = (-b + sqrt(resultado)) / (2*a);
+
+                        std::cout << "O valor de x1 e x2 é: " << x <<std::endl; 
+
+                        break;
+                }
+                case -1:
+                {
+                        std::cout << "TERCEIRO CASO -- NÃO EXISTE RAIZ REAL" << std::endl;
+
+                       break;
+                }
+        }
+
         return 0;
 }
 
@@ -81,3 +128,4 @@ double delta(double a, double b, double c) {
         return (b * b)-(4*a*c);
 
 }
+
