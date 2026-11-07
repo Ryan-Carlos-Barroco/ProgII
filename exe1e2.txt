@@ -1,3 +1,0 @@
-exe1 - O compilador faz a tradução do codigo fonte em linguagem de maquina (binario) gerando um .exe ou .out que é o item que pode ser executado pelo PC
-
-exe2 - Os tipos eles definem qual é a operação adequada que o programa deve usar exemplo bool que opera com logicos true e false e é principalmente usado para validar respotas do usuario ou identificar saidas binarias (ou de duas opções) como uma função chamada ehBissexto que verifica se o ano é bissexto ou não
